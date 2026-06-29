@@ -9,13 +9,18 @@
 <body>
     <div class="game-wrapper">
         <h1 class="game-title">Water Drop</h1>
-        <p class="game-tagline">Catch the good drops, avoid the bad ones!</p>
+        <p class="game-tagline">Catch the good drops, avoid the bad ones, and help bring clean water closer.</p>
+        <div class="mission-card">
+            <p>Every safe catch brings the mission to life. Stay focused and collect as many as you can.</p>
+        </div>
         <div class="score-panel">
             <div class="score">Score: <span id="score">0</span></div>
             <div class="timer">Time: <span id="time">30</span>s</div>
+            <div class="high-score">High Score: <span id="high-score">0</span></div>
             <button id="start-btn">Start Game</button>
         </div>
         <div id="game-message" class="game-message">Tap a drop to score points before the timer ends.</div>
+        <div id="milestone-message" class="milestone-message" aria-live="polite"></div>
         <div id="game-container">
         </div>
     </div>

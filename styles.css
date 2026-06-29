@@ -29,8 +29,9 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #e6f8ff;
+    background: linear-gradient(135deg, #e6f8ff 0%, #f9feff 100%);
     font-family: Arial, sans-serif;
+    color: #123b4d;
 }
 
 .game-wrapper {
@@ -41,6 +42,18 @@ body {
     padding: 20px;
     width: 100%;
     max-width: 900px;
+}
+
+.mission-card {
+    width: 100%;
+    max-width: 800px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, rgba(46, 157, 247, 0.12), rgba(139, 209, 203, 0.2));
+    border: 1px solid #8bd1cb;
+    text-align: center;
+    color: #0f4d6f;
+    font-size: 1rem;
 }
 
 .score-panel {
@@ -57,7 +70,8 @@ body {
 }
 
 .timer,
-.score {
+.score,
+.high-score {
     font-size: 24px;
     font-weight: 700;
     color: #131313;
@@ -73,13 +87,29 @@ body {
     color: #0f4d6f;
     font-size: 18px;
     text-align: center;
+    min-height: 54px;
+}
+
+.milestone-message {
+    min-height: 24px;
+    color: #159a48;
+    font-weight: 700;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.milestone-message.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 #game-container {
     width: 100%;
     max-width: 800px;
     height: 600px;
-    background-color: #ffffff;
+    background: linear-gradient(to bottom, #dff7ff 0%, #ffffff 70%, #ebf9f8 100%);
     border: 3px solid #2e9df7;
     border-radius: 18px;
     position: relative;
@@ -116,6 +146,7 @@ body {
     width: 60px;
     height: 60px;
     background: radial-gradient(circle at 35% 30%, #8bd1cb, #2e9df7);
+    border: 2px solid rgba(255, 255, 255, 0.55);
     border-radius: 50%;
     animation: dropFall linear forwards;
     transform-origin: center;
@@ -131,6 +162,15 @@ body {
 
 .bad-drop {
     background: radial-gradient(circle at 35% 30%, #ff902a, #f5402c);
+}
+
+.feedback-pop {
+    position: absolute;
+    font-weight: 700;
+    font-size: 16px;
+    color: #0f4d6f;
+    pointer-events: none;
+    animation: feedbackRise 0.8s ease-out forwards;
 }
 
 .game-title {
@@ -164,6 +204,21 @@ body {
     }
     to {
         transform: translateY(640px);
+    }
+}
+
+@keyframes feedbackRise {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0) scale(0.7);
+    }
+    40% {
+        opacity: 1;
+        transform: translate(-50%, -18px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -42px) scale(1.05);
     }
 }
 
